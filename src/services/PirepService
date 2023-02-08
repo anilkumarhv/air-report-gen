@@ -1,0 +1,19 @@
+import axios from "axios";
+
+
+const getPirepData = async (code: string) => {
+    const url = 'http://localhost:8080/pirep/'
+    await axios.get(url + code).(response => {
+        console.log(response.data);
+        return response.data;
+    }).catch(e => {
+        console.log(e);
+    });
+};
+
+
+const PirepService = {
+    getPirepData
+};
+
+export default PirepService;

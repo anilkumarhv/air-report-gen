@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navigation from './components/Navigation';
+import Pireps from './components/Pireps';
+import { Stack } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navigation />
+        <Stack gap={6}>
+          <div className="container">
+            <Pireps />
+            {/* <Routes>
+              <Route path="/pireps" element={<Pireps />} /> // working
+
+              <Route exact path="/add" component={AddUser} />
+              <Route path="/users/:id" component={User} />
+              </Routes> */}
+          </div>
+        </Stack>
+      </div>
+    </BrowserRouter>
   );
 }
 
